@@ -1,6 +1,6 @@
 /** Adapted from /contrib/auto-render/auto-render.js at github.com/Khan/KaTeX */
 
-import { renderToString } from 'katex';
+import katex from 'katex';
 import { Delimiter } from './types';
 import splitAtDelimiters from './splitAtDelimiters';
 
@@ -17,7 +17,7 @@ export default function renderLatexInTextAsHTMLString(text: string, delimiters: 
       const latex = data[i].data;
       const displayMode = data[i].display;
       try {
-        const rendered = renderToString(latex, { displayMode, macros });
+        const rendered = katex.renderToString(latex, { displayMode, macros });
         fragments.push(rendered);
       } catch (error) {
         if (strict) {

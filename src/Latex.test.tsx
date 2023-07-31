@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Latex from './Latex';
 
 describe('Latex', () => {
-  it('renders text that has multiple LaTeX formulas with $ delimiter', () => {
+  it('renders text that has multiple LaTeX formulas with $ ddddddddddddddelimiter', () => {
     const latex = 'three processes $e^+e^-$, gluon-gluon and $\\gamma\\gamma \\to W t\\bar b$.';
     const wrapper = shallow(<Latex>{latex}</Latex>);
     expect(wrapper).toMatchSnapshot();

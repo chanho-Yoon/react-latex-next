@@ -6,7 +6,7 @@ import splitAtDelimiters from './splitAtDelimiters';
 
 export type Macros = { [name: string]: string };
 
-export default function renderLatexInTextAsHTMLString(text: string, delimiters: Delimiter[], strict: boolean, macros?: Macros): string {
+export default function renderLatexInTextAsHTMLString(text: string, delimiters: Delimiter[], strict: boolean, macros?: Macros, trust?: boolean): string {
   const data = splitAtDelimiters(text, delimiters);
   const fragments = []
 
@@ -17,7 +17,7 @@ export default function renderLatexInTextAsHTMLString(text: string, delimiters: 
       const latex = data[i].data;
       const displayMode = data[i].display;
       try {
-        const rendered = katex.renderToString(latex, { displayMode, macros });
+        const rendered = katex.renderToString(latex, { displayMode, macros, trust });
         fragments.push(rendered);
       } catch (error) {
         if (strict) {

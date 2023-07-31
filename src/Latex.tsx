@@ -20,12 +20,12 @@ export default class Latex extends React.Component<LatexProps> {
       { left: '$', right: '$', display: false },
       { left: '\\[', right: '\\]', display: true },
     ],
-    strict: false
+    strict: false,
     trust: true
   };
 
   render() {
-    const { children, delimiters, strict, macros } = this.props
+    const { children, delimiters, strict, macros,trust } = this.props
     const renderedLatex = renderLatex(children, delimiters!, strict!, macros, trust);
     return (
       <span className="__Latex__" dangerouslySetInnerHTML={{ __html: renderedLatex }} />
